@@ -3,13 +3,13 @@ package com.andrewsnelgrove;
 import java.lang.Math;
 import javax.swing.*;
 import java.awt.*;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 public class javaCalculatorGUI extends JFrame {
     private static final Map<String, int> letterToIntegerMap = new HashMap<>();
-    private static final Map<int, String> integerToLetterMap = new HashMap<>();
+    private static final Map<int, String> integerToHexString = new HashMap<>();
+    //private static final Map<Character, >
 
     private JRadioButton decimalOptionButton;
     private JRadioButton octalOptionButton;
@@ -62,7 +62,7 @@ public class javaCalculatorGUI extends JFrame {
         mainPane.setLayout(new BorderLayout());
 
         mapLetterToInteger();
-        mapIntegerToLetter();
+        mapIntegerToHexString();
 
         createScreenPanel();
         createNumbersPanel();
@@ -85,13 +85,13 @@ public class javaCalculatorGUI extends JFrame {
         letterToIntegerMap.put("F", 15);
     }
 
-    private void mapIntegerToLetter(){
-        integerToLetterMap.put(10, "A");
-        integerToLetterMap.put(11, "B");
-        integerToLetterMap.put(12, "C");
-        integerToLetterMap.put(13, "D");
-        integerToLetterMap.put(14, "E");
-        integerToLetterMap.put(15, "F");
+    private void mapIntegerToHexString(){
+        integerToHexString.put(10, "A");
+        integerToHexString.put(11, "B");
+        integerToHexString.put(12, "C");
+        integerToHexString.put(13, "D");
+        integerToHexString.put(14, "E");
+        integerToHexString.put(15, "F");
     }
 
     private void createNumbersPanel(){
@@ -226,11 +226,20 @@ public class javaCalculatorGUI extends JFrame {
         return Integer.parseInt(numberToConvert);
     }
 
-    private int hexaDecimalToDecimal(String hexNumberToConvert){
+    private int hexadecimaltodecimal(String hexNumberToConvert){
         int sumInDecimal = 0;
         int stringLength = hexNumberToConvert.length();
         for (int i=0; i < stringLength; i++){
-            sumInDecimal += (Math.pow(16,(stringLength - 1));
+            int numToMultply;
+            String stringToCompare = String.valueOf(hexNumberToConvert.charAt(i));
+
+            if ( (letterToIntegerMap.get(stringToCompare)).equals(null)){
+                numToMultply = Integer.parseInt(stringToCompare);
+            }
+            else{
+                numToMultply = letterToIntegerMap.get(stringToCompare);
+            }
+            sumInDecimal += ( numToMultply * (Math.pow(16,(stringLength - 1)) );
         }
     }
 
