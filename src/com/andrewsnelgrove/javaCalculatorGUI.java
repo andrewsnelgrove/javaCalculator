@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class javaCalculatorGUI extends JFrame {
-    private static final Map<String, int> letterToIntegerMap = new HashMap<>();
+    private static final Map<String, int> hexStringToIntegerMap = new HashMap<>();
     private static final Map<int, String> integerToHexString = new HashMap<>();
     //private static final Map<Character, >
 
@@ -61,7 +61,7 @@ public class javaCalculatorGUI extends JFrame {
         mainPane = getContentPane();
         mainPane.setLayout(new BorderLayout());
 
-        mapLetterToInteger();
+        mapHexStringToInteger();
         mapIntegerToHexString();
 
         createScreenPanel();
@@ -76,13 +76,23 @@ public class javaCalculatorGUI extends JFrame {
 
     }
 
-    private void mapLetterToInteger(){
-        letterToIntegerMap.put("A", 10);
-        letterToIntegerMap.put("B", 11);
-        letterToIntegerMap.put("C", 12);
-        letterToIntegerMap.put("D", 13);
-        letterToIntegerMap.put("E", 14);
-        letterToIntegerMap.put("F", 15);
+    private void mapHexStringToInteger(){
+        hexStringToIntegerMap.put("0", 0);
+        hexStringToIntegerMap.put("1", 1);
+        hexStringToIntegerMap.put("2", 2);
+        hexStringToIntegerMap.put("3", 3);
+        hexStringToIntegerMap.put("4", 4);
+        hexStringToIntegerMap.put("5", 5);
+        hexStringToIntegerMap.put("6", 6);
+        hexStringToIntegerMap.put("7", 7);
+        hexStringToIntegerMap.put("8", 8);
+        hexStringToIntegerMap.put("9", 9);
+        hexStringToIntegerMap.put("A", 10);
+        hexStringToIntegerMap.put("B", 11);
+        hexStringToIntegerMap.put("C", 12);
+        hexStringToIntegerMap.put("D", 13);
+        hexStringToIntegerMap.put("E", 14);
+        hexStringToIntegerMap.put("F", 15);
     }
 
     private void mapIntegerToHexString(){
@@ -233,11 +243,11 @@ public class javaCalculatorGUI extends JFrame {
             int numToMultply;
             String stringToCompare = String.valueOf(hexNumberToConvert.charAt(i));
 
-            if ( (letterToIntegerMap.get(stringToCompare)).equals(null)){
+            if ( (hexStringToIntegerMap.get(stringToCompare)).equals(null)){
                 numToMultply = Integer.parseInt(stringToCompare);
             }
             else{
-                numToMultply = letterToIntegerMap.get(stringToCompare);
+                numToMultply = hexStringToIntegerMap.get(stringToCompare);
             }
             sumInDecimal += ( numToMultply * (Math.pow(16,(stringLength - 1)) );
         }
