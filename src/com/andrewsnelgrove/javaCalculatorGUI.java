@@ -185,12 +185,8 @@ public class javaCalculatorGUI extends JFrame {
 
     private void createScreenPanel(){
         screenField = new JTextField(20);
-
-
-
-
-
-
+        screenField.setText("");
+        
         mainPane.add(screenField, BorderLayout.NORTH);
     }
 
