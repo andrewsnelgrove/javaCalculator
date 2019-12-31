@@ -112,11 +112,21 @@ public class javaCalculatorGUI extends JFrame {
         numberButtonArray[2] = button2;
         numberButtonArray[3] = button3;
         numberButtonArray[4] = button4;
-        //TODO Start here
-
-
-
-
+        numberButtonArray[5] = button5;
+        numberButtonArray[6] = button6;
+        numberButtonArray[7] = button7;
+        numberButtonArray[8] = button8;
+        numberButtonArray[9] = button9;
+        numberButtonArray[10] = buttonA;
+        numberButtonArray[11] = buttonB;
+        numberButtonArray[12] = buttonC;
+        numberButtonArray[13] = buttonD;
+        numberButtonArray[14] = buttonE;
+        numberButtonArray[15] = buttonF;
+        
+        for (JButton btn : numberButtonArray){
+            numbersPane.add(btn);
+        }
     }
 
     private void buttonToNumber(JButton aButton){
