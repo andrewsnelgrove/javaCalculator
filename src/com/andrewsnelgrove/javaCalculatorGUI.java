@@ -9,6 +9,8 @@ import java.util.Map;
 
 public class javaCalculatorGUI extends JFrame {
     private static final Map<String, int> letterToIntegerMap = new HashMap<>();
+    private static final Map<int, String> integerToLetterMap = new HashMap<>();
+
     private JRadioButton decimalOptionButton;
     private JRadioButton octalOptionButton;
     private JRadioButton hexadecimalOptionButton;
@@ -82,6 +84,16 @@ public class javaCalculatorGUI extends JFrame {
         letterToIntegerMap.put("E", 14);
         letterToIntegerMap.put("F", 15);
     }
+
+    private void mapIntegerToLetter(){
+        integerToLetterMap.put(10, "A");
+        integerToLetterMap.put(11, "B");
+        integerToLetterMap.put(12, "C");
+        integerToLetterMap.put(13, "D");
+        integerToLetterMap.put(14, "E");
+        integerToLetterMap.put(15, "F");
+    }
+
     private void createNumbersPanel(){
         numbersPane.setLayout(new GridLayout(4, 4));
 
