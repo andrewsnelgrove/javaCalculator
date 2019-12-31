@@ -123,7 +123,7 @@ public class javaCalculatorGUI extends JFrame {
         numberButtonArray[13] = buttonD;
         numberButtonArray[14] = buttonE;
         numberButtonArray[15] = buttonF;
-        
+
         for (JButton btn : numberButtonArray){
             numbersPane.add(btn);
         }
@@ -141,6 +141,41 @@ public class javaCalculatorGUI extends JFrame {
         multButton.setText("X");
         divideButton.setText("/");
         resetButton.setText("RESET");//THIS OK FOR SYMBOLS C?
+
+        addButton.addActionListener(e -> additionOperation());
+        subtractButton.addActionListener(e -> subtractionOperation());
+        multButton.addActionListener(e -> multiplicationOperation());
+        divideButton.addActionListener(e -> divisionOperation());
+        resetButton.addActionListener(e -> resetOperation());
+
+        operationButtonArray = new JButton[5];
+        operationButtonArray[0] = addButton;
+        operationButtonArray[1] = subtractButton;
+        operationButtonArray[2] = multButton;
+        operationButtonArray[3] = divideButton;
+        operationButtonArray[4] = resetButton;
+
+        for (JButton btn : operationButtonArray){
+            operationsPane.add(btn);
+        }
+    }
+
+    private void additionOperation(){
+
+    }
+
+    private void subtractionOperation(){
+
+    }
+    private void multiplicationOperation(){
+
+    }
+    private void divisionOperation(){
+
+    }
+
+    private void resetOperation(){
+
     }
 
 }
