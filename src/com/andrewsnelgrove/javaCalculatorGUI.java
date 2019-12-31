@@ -162,7 +162,7 @@ public class javaCalculatorGUI extends JFrame {
         }
         mainPane.add(operationsPane, BorderLayout.WEST);
 
-        
+
     }
 
     private void additionOperation(){
@@ -190,7 +190,12 @@ public class javaCalculatorGUI extends JFrame {
 
 
 
+
         mainPane.add(screenField, BorderLayout.NORTH);
+    }
+
+    private void numberToScreen(String numberToDisplay){
+        screenField.setText(numberToDisplay);
     }
 
 }
