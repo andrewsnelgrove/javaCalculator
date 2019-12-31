@@ -236,21 +236,16 @@ public class javaCalculatorGUI extends JFrame {
         return Integer.parseInt(numberToConvert);
     }
 
-    private int hexadecimaltodecimal(String hexNumberToConvert){
+    private int hexadecimalToDecimal(String hexNumberToConvert){
         int sumInDecimal = 0;
         int stringLength = hexNumberToConvert.length();
         for (int i=0; i < stringLength; i++){
             int numToMultply;
             String stringToCompare = String.valueOf(hexNumberToConvert.charAt(i));
-
-            if ( (hexStringToIntegerMap.get(stringToCompare)).equals(null)){
-                numToMultply = Integer.parseInt(stringToCompare);
-            }
-            else{
-                numToMultply = hexStringToIntegerMap.get(stringToCompare);
-            }
-            sumInDecimal += ( numToMultply * (Math.pow(16,(stringLength - 1)) );
+            numToMultply = hexStringToIntegerMap.get(stringToCompare);
+            sumInDecimal += ( numToMultply * (Math.pow(16,(stringLength - 1)) ) );
         }
+        return sumInDecimal;
     }
 
 }
