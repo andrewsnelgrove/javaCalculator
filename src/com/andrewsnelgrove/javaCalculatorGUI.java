@@ -1,9 +1,14 @@
 package com.andrewsnelgrove;
 
+import java.lang.Math;
 import javax.swing.*;
 import java.awt.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class javaCalculatorGUI extends JFrame {
+    private static final Map<String, int> letterToIntegerMap = new HashMap<>();
     private JRadioButton decimalOptionButton;
     private JRadioButton octalOptionButton;
     private JRadioButton hexadecimalOptionButton;
@@ -54,6 +59,9 @@ public class javaCalculatorGUI extends JFrame {
         mainPane = getContentPane();
         mainPane.setLayout(new BorderLayout());
 
+        mapLetterToInteger();
+        mapIntegerToLetter();
+
         createScreenPanel();
         createNumbersPanel();
         createOperationsPanel();
@@ -66,6 +74,14 @@ public class javaCalculatorGUI extends JFrame {
 
     }
 
+    private void mapLetterToInteger(){
+        letterToIntegerMap.put("A", 10);
+        letterToIntegerMap.put("B", 11);
+        letterToIntegerMap.put("C", 12);
+        letterToIntegerMap.put("D", 13);
+        letterToIntegerMap.put("E", 14);
+        letterToIntegerMap.put("F", 15);
+    }
     private void createNumbersPanel(){
         numbersPane.setLayout(new GridLayout(4, 4));
 
@@ -196,6 +212,14 @@ public class javaCalculatorGUI extends JFrame {
 
     private Integer octalToDecimal(String numberToConvert){
         return Integer.parseInt(numberToConvert);
+    }
+
+    private int hexaDecimalToDecimal(String hexNumberToConvert){
+        int sumInDecimal = 0;
+        int stringLength = hexNumberToConvert.length();
+        for (int i=0; i < stringLength; i++){
+            sumInDecimal += (Math.pow(16,(stringLength - 1));
+        }
     }
 
 }
