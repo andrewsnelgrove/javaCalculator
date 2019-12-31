@@ -8,7 +8,7 @@ public class javaCalculatorGUI extends JFrame {
     private JRadioButton octalOptionButton;
     private JRadioButton hexadecimalOptionButton;
 
-    private JTextArea screenArea;
+    private JTextField screenField;
 
     JButton[] numberButtonArray;
 
@@ -54,7 +54,7 @@ public class javaCalculatorGUI extends JFrame {
         mainPane = getContentPane();
         mainPane.setLayout(new BorderLayout());
 
-
+        createScreenPanel();
         createNumbersPanel();
         createOperationsPanel();
 
@@ -127,6 +127,8 @@ public class javaCalculatorGUI extends JFrame {
         for (JButton btn : numberButtonArray){
             numbersPane.add(btn);
         }
+
+        mainPane.add(numbersPane, BorderLayout.EAST);
     }
 
     private void buttonToNumber(JButton aButton){
@@ -158,6 +160,9 @@ public class javaCalculatorGUI extends JFrame {
         for (JButton btn : operationButtonArray){
             operationsPane.add(btn);
         }
+        mainPane.add(operationsPane, BorderLayout.WEST);
+
+        
     }
 
     private void additionOperation(){
@@ -176,6 +181,16 @@ public class javaCalculatorGUI extends JFrame {
 
     private void resetOperation(){
 
+    }
+
+    private void createScreenPanel(){
+        screenField = new JTextField(20);
+
+
+
+
+
+        mainPane.add(screenField, BorderLayout.NORTH);
     }
 
 }
