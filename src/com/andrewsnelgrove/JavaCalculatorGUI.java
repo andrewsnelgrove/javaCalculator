@@ -48,13 +48,13 @@ public class JavaCalculatorGUI extends JFrame {
     private JPanel numbersPane;
     private JPanel operationsPane;
 
-    private String currentNumber;
+    private String currentEquation;
     private String firstNumber;
     private String secondNumber;
 
     public JavaCalculatorGUI(){
         super();
-        currentNumber = "";
+        currentEquation = "";
         firstNumber = "";
         secondNumber = "";
 
@@ -170,7 +170,8 @@ public class JavaCalculatorGUI extends JFrame {
     }
 
     private void buttonToNumberAndDisplay(JButton aButton){
-        currentNumber += aButton.getText();
+        currentEquation += aButton.getText();
+        screenField.setText(String.valueOf(currentEquation));
     }
 
     private void createOperationsPanel(){
