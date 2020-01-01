@@ -14,7 +14,7 @@ public class JavaCalculatorGUI extends JFrame {
     private JRadioButton octalOptionButton;
     private JRadioButton hexadecimalOptionButton;
 
-    private JTextField screenField;
+    private JLabel screenField;
 
     private JButton[] numberButtonArray;
 
@@ -224,8 +224,10 @@ public class JavaCalculatorGUI extends JFrame {
     }
 
     private void createScreenPanel(){
-        screenField = new JTextField(20);
+        screenField = new JLabel();
         screenField.setText("");
+        screenField.setSize(400, 200);
+        
 
         mainPane.add(screenField, BorderLayout.NORTH);
     }
