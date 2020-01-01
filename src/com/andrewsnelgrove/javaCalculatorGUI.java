@@ -59,6 +59,7 @@ public class javaCalculatorGUI extends JFrame {
         secondNumber = "";
 
         mainPane = getContentPane();
+        mainPane.setSize(200, 200);
         mainPane.setLayout(new BorderLayout());
 
         mapHexStringToInteger();
@@ -68,12 +69,7 @@ public class javaCalculatorGUI extends JFrame {
         createNumbersPanel();
         createOperationsPanel();
 
-
-
-
-
-
-
+        setVisible(true);
     }
 
     private void mapHexStringToInteger(){
