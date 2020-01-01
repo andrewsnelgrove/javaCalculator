@@ -166,7 +166,7 @@ public class JavaCalculatorGUI extends JFrame {
             numbersPane.add(btn);
         }
 
-        mainPane.add(numbersPane, BorderLayout.EAST);
+        mainPane.add(numbersPane, BorderLayout.WEST);
     }
 
     private void buttonToNumber(JButton aButton){
@@ -200,7 +200,7 @@ public class JavaCalculatorGUI extends JFrame {
         for (JButton btn : operationButtonArray){
             operationsPane.add(btn);
         }
-        mainPane.add(operationsPane, BorderLayout.WEST);
+        mainPane.add(operationsPane, BorderLayout.EAST);
 
 
     }
