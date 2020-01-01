@@ -223,7 +223,29 @@ public class JavaCalculatorGUI extends JFrame {
 
     }
 
+    private void mathOperation(){
+        if (addOp == true){
+            additionOperation();
+        }
+        else{
+            if (subOp == true){
+                subtractionOperation();
+            }
+            else{
+                if (multOp == true){
+                    multiplicationOperation();
+                }
+                else{
+                    if (divOp == true){
+                        divisionOperation();
+                    }
+                }
+            }
+        }
+    }
+
     private void additionOperation(){
+        
 
     }
 
@@ -273,13 +295,12 @@ public class JavaCalculatorGUI extends JFrame {
         return sumInDecimal;
     }
 
-    private int mathOperation(){
-        //Determine the operation
-        for (int i = 0; i < currentEquation.length(); i++){
-            if (String.valueOf(currentEquation.charAt(i)).equals("+")){
-                additionOperation();
-            }
-        }
 
-    }
+
+
+
+
+
+
+
 }
