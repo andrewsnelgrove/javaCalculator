@@ -225,9 +225,12 @@ public class JavaCalculatorGUI extends JFrame {
 
     private void createScreenPanel(){
         screenField = new JLabel();
-        screenField.setText("");
+        screenField.setText("   ");//So you can actually see it.
         screenField.setSize(400, 200);
+        screenField.setOpaque(true);
+        screenField.setBackground(Color.lightGray);
         
+
 
         mainPane.add(screenField, BorderLayout.NORTH);
     }
