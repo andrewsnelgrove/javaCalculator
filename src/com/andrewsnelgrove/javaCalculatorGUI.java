@@ -100,26 +100,26 @@ public class javaCalculatorGUI extends JFrame {
     }
 
     private void createNumbersPanel(){
+        numbersPane = new JPanel();
         numbersPane.setLayout(new GridLayout(4, 4));
 
-        button0.setText("0");
-        button1.setText("1");
-        button2.setText("2");
-        button3.setText("3");
-        button4.setText("4");
-        button5.setText("5");
-        button6.setText("6");
-        button7.setText("7");
-        //TODO Start here again.
-        button8.setText("8");
-        button9.setText("9");
+        button0 = new JButton("0");
+        button1 = new JButton("1");
+        button2 = new JButton("2");
+        button3 = new JButton("3");
+        button4 = new JButton("4");
+        button5 = new JButton("5");
+        button6 = new JButton("6");
+        button7 = new JButton("7");
+        button8 = new JButton("8");
+        button9 = new JButton("9");
 
-        buttonA.setText("A");
-        buttonB.setText("B");
-        buttonC.setText("C");
-        buttonD.setText("D");
-        buttonE.setText("E");
-        buttonF.setText("F");
+        buttonA = new JButton("A");
+        buttonB = new JButton("B");
+        buttonC = new JButton("C");
+        buttonD = new JButton("D");
+        buttonE = new JButton("E");
+        buttonF = new JButton("F");
 
         button0.addActionListener(e -> buttonToNumber(button0));
         button1.addActionListener(e -> buttonToNumber(button1));
