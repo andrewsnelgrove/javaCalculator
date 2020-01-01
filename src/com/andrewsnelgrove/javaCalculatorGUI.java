@@ -169,13 +169,15 @@ public class javaCalculatorGUI extends JFrame {
     }
 
     private void createOperationsPanel(){
+        operationsPane = new JPanel();
         operationsPane.setLayout(new GridLayout(3, 2));
 
-        addButton.setText("+");
-        subtractButton.setText("-");
-        multButton.setText("X");
-        divideButton.setText("/");
-        resetButton.setText("RESET");//THIS OK FOR SYMBOLS C?
+        addButton = new JButton("+");
+        subtractButton = new JButton("-");
+        multButton = new JButton("X");
+        divideButton = new JButton("/");
+        equalsButton = new JButton("=");
+        resetButton = new JButton("RESET");//THIS OK FOR SYMBOLS C?
 
         addButton.addActionListener(e -> additionOperation());
         subtractButton.addActionListener(e -> subtractionOperation());
