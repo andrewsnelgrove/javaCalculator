@@ -189,7 +189,9 @@ public class JavaCalculatorGUI extends JFrame {
         subtractButton.addActionListener(e -> buttonToNumberAndDisplay(subtractButton));
         multButton.addActionListener(e -> buttonToNumberAndDisplay(multButton));
         divideButton.addActionListener(e -> buttonToNumberAndDisplay(divideButton));
-        resetButton.addActionListener(e -> buttonToNumberAndDisplay(resetButton));
+
+        equalsButton.addActionListener(e -> mathOperation());
+        resetButton.addActionListener(e -> resetOperation());
 
         operationButtonArray = new JButton[5];
         operationButtonArray[0] = addButton;
