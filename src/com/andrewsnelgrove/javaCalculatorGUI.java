@@ -7,9 +7,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class javaCalculatorGUI extends JFrame {
-    private static final Map<String, int> hexStringToIntegerMap = new HashMap<>();
-    private static final Map<int, String> integerToHexString = new HashMap<>();
-    //private static final Map<Character, >
+    private static final Map<String, Integer> hexStringToIntegerMap = new HashMap<>();
+    private static final Map<Integer, String> integerToHexString = new HashMap<>();
 
     private JRadioButton decimalOptionButton;
     private JRadioButton octalOptionButton;
