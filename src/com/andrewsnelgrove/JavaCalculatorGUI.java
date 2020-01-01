@@ -126,23 +126,23 @@ public class JavaCalculatorGUI extends JFrame {
         buttonE = new JButton("E");
         buttonF = new JButton("F");
 
-        button0.addActionListener(e -> buttonToNumber(button0));
-        button1.addActionListener(e -> buttonToNumber(button1));
-        button2.addActionListener(e -> buttonToNumber(button2));
-        button3.addActionListener(e -> buttonToNumber(button3));
-        button4.addActionListener(e -> buttonToNumber(button4));
-        button5.addActionListener(e -> buttonToNumber(button5));
-        button6.addActionListener(e -> buttonToNumber(button6));
-        button7.addActionListener(e -> buttonToNumber(button7));
-        button8.addActionListener(e -> buttonToNumber(button8));
-        button9.addActionListener(e -> buttonToNumber(button9));
+        button0.addActionListener(e -> buttonToNumberAndDisplay(button0));
+        button1.addActionListener(e -> buttonToNumberAndDisplay(button1));
+        button2.addActionListener(e -> buttonToNumberAndDisplay(button2));
+        button3.addActionListener(e -> buttonToNumberAndDisplay(button3));
+        button4.addActionListener(e -> buttonToNumberAndDisplay(button4));
+        button5.addActionListener(e -> buttonToNumberAndDisplay(button5));
+        button6.addActionListener(e -> buttonToNumberAndDisplay(button6));
+        button7.addActionListener(e -> buttonToNumberAndDisplay(button7));
+        button8.addActionListener(e -> buttonToNumberAndDisplay(button8));
+        button9.addActionListener(e -> buttonToNumberAndDisplay(button9));
 
-        buttonA.addActionListener(e -> buttonToNumber(buttonA));
-        buttonB.addActionListener(e -> buttonToNumber(buttonB));
-        buttonC.addActionListener(e -> buttonToNumber(buttonC));
-        buttonD.addActionListener(e -> buttonToNumber(buttonD));
-        buttonE.addActionListener(e -> buttonToNumber(buttonE));
-        buttonF.addActionListener(e -> buttonToNumber(buttonF));
+        buttonA.addActionListener(e -> buttonToNumberAndDisplay(buttonA));
+        buttonB.addActionListener(e -> buttonToNumberAndDisplay(buttonB));
+        buttonC.addActionListener(e -> buttonToNumberAndDisplay(buttonC));
+        buttonD.addActionListener(e -> buttonToNumberAndDisplay(buttonD));
+        buttonE.addActionListener(e -> buttonToNumberAndDisplay(buttonE));
+        buttonF.addActionListener(e -> buttonToNumberAndDisplay(buttonF));
 
         numberButtonArray = new JButton[16];
         numberButtonArray[0] = button0;
@@ -169,7 +169,7 @@ public class JavaCalculatorGUI extends JFrame {
         mainPane.add(numbersPane, BorderLayout.WEST);
     }
 
-    private void buttonToNumber(JButton aButton){
+    private void buttonToNumberAndDisplay(JButton aButton){
         currentNumber += aButton.getText();
     }
 
