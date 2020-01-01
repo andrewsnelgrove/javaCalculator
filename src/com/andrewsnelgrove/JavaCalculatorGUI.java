@@ -6,7 +6,7 @@ import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 
-public class javaCalculatorGUI extends JFrame {
+public class JavaCalculatorGUI extends JFrame {
     private static final Map<String, Integer> hexStringToIntegerMap = new HashMap<>();
     private static final Map<Integer, String> integerToHexString = new HashMap<>();
 
@@ -16,7 +16,7 @@ public class javaCalculatorGUI extends JFrame {
 
     private JTextField screenField;
 
-    JButton[] numberButtonArray;
+    private JButton[] numberButtonArray;
 
     private JButton button0;
     private JButton button1;
@@ -35,7 +35,7 @@ public class javaCalculatorGUI extends JFrame {
     private JButton buttonE;
     private JButton buttonF;
 
-    JButton[] operationButtonArray;
+    private JButton[] operationButtonArray;
 
     private JButton addButton;
     private JButton subtractButton;
@@ -52,14 +52,19 @@ public class javaCalculatorGUI extends JFrame {
     private String firstNumber;
     private String secondNumber;
 
-    public javaCalculatorGUI(){
+    public JavaCalculatorGUI(){
+        super();
         currentNumber = "";
         firstNumber = "";
         secondNumber = "";
 
         mainPane = getContentPane();
-        mainPane.setSize(200, 200);
         mainPane.setLayout(new BorderLayout());
+
+        setTitle("Calculator");
+        setSize(900, 600);
+        setResizable(false);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
         mapHexStringToInteger();
         mapIntegerToHexString();
