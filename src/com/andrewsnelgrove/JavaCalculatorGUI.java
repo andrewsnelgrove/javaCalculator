@@ -185,11 +185,11 @@ public class JavaCalculatorGUI extends JFrame {
         equalsButton = new JButton("=");
         resetButton = new JButton("RESET");//THIS OK FOR SYMBOLS C?
 
-        addButton.addActionListener(e -> additionOperation());
-        subtractButton.addActionListener(e -> subtractionOperation());
-        multButton.addActionListener(e -> multiplicationOperation());
-        divideButton.addActionListener(e -> divisionOperation());
-        resetButton.addActionListener(e -> resetOperation());
+        addButton.addActionListener(e -> buttonToNumberAndDisplay(addButton));
+        subtractButton.addActionListener(e -> buttonToNumberAndDisplay(subtractButton));
+        multButton.addActionListener(e -> buttonToNumberAndDisplay(multButton));
+        divideButton.addActionListener(e -> buttonToNumberAndDisplay(divideButton));
+        resetButton.addActionListener(e -> buttonToNumberAndDisplay(resetButton));
 
         operationButtonArray = new JButton[5];
         operationButtonArray[0] = addButton;
