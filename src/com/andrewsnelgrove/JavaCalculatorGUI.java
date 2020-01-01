@@ -51,9 +51,24 @@ public class JavaCalculatorGUI extends JFrame {
     private String currentEquation;
     private String firstNumber;
     private String secondNumber;
+    private String operationSymbol;
+
+    private boolean addOp;
+    private boolean subOp;
+    private boolean multOp;
+    private boolean divOp;
+    private boolean equalsOp;
+
 
     public JavaCalculatorGUI(){
         super();
+
+        addOp = false;
+        subOp = false;
+        multOp = false;
+        divOp = false;
+        equalsOp = false;
+
         currentEquation = "";
         firstNumber = "";
         secondNumber = "";
@@ -185,10 +200,10 @@ public class JavaCalculatorGUI extends JFrame {
         equalsButton = new JButton("=");
         resetButton = new JButton("RESET");//THIS OK FOR SYMBOLS C?
 
-        addButton.addActionListener(e -> buttonToNumberAndDisplay(addButton));
-        subtractButton.addActionListener(e -> buttonToNumberAndDisplay(subtractButton));
-        multButton.addActionListener(e -> buttonToNumberAndDisplay(multButton));
-        divideButton.addActionListener(e -> buttonToNumberAndDisplay(divideButton));
+        addButton.addActionListener(e -> {buttonToNumberAndDisplay(addButton); addOp = true;});
+        subtractButton.addActionListener(e -> {buttonToNumberAndDisplay(subtractButton); subOp = true;});
+        multButton.addActionListener(e -> {buttonToNumberAndDisplay(multButton); multOp = true;});
+        divideButton.addActionListener(e -> {buttonToNumberAndDisplay(divideButton); divOp = true;});
 
         equalsButton.addActionListener(e -> mathOperation());
         resetButton.addActionListener(e -> resetOperation());
@@ -258,4 +273,13 @@ public class JavaCalculatorGUI extends JFrame {
         return sumInDecimal;
     }
 
+    private int mathOperation(){
+        //Determine the operation
+        for (int i = 0; i < currentEquation.length(); i++){
+            if (String.valueOf(currentEquation.charAt(i)).equals("+")){
+                additionOperation();
+            }
+        }
+
+    }
 }
