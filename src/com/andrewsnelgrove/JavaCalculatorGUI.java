@@ -101,32 +101,27 @@ public class JavaCalculatorGUI extends JFrame {
         setVisible(true);
     }
 
-    private void mapHexStringToInteger(){
-        hexStringToIntegerMap.put("0", 0);
-        hexStringToIntegerMap.put("1", 1);
-        hexStringToIntegerMap.put("2", 2);
-        hexStringToIntegerMap.put("3", 3);
-        hexStringToIntegerMap.put("4", 4);
-        hexStringToIntegerMap.put("5", 5);
-        hexStringToIntegerMap.put("6", 6);
-        hexStringToIntegerMap.put("7", 7);
-        hexStringToIntegerMap.put("8", 8);
-        hexStringToIntegerMap.put("9", 9);
-        hexStringToIntegerMap.put("A", 10);
-        hexStringToIntegerMap.put("B", 11);
-        hexStringToIntegerMap.put("C", 12);
-        hexStringToIntegerMap.put("D", 13);
-        hexStringToIntegerMap.put("E", 14);
-        hexStringToIntegerMap.put("F", 15);
+    private void additionOperation(){
+        int integerAnswer = 0;
+        if (isDeci == true){
+            integerAnswer = Integer.parseInt(firstNumber) + Integer.parseInt(secondNumber);
+        }
+        else{
+            if (isOct == true){
+                integerAnswer = octalToDecimal(firstNumber) + octalToDecimal(secondNumber);
+            }
+            else{
+                if (isHex == true){
+                    integerAnswer = hexadecimalToDecimal(firstNumber) + hexadecimalToDecimal(secondNumber);
+                }
+            }
+        }
+        answer = String.valueOf(integerAnswer);
     }
 
-    private void mapIntegerToHexString(){
-        integerToHexString.put(10, "A");
-        integerToHexString.put(11, "B");
-        integerToHexString.put(12, "C");
-        integerToHexString.put(13, "D");
-        integerToHexString.put(14, "E");
-        integerToHexString.put(15, "F");
+    private void buttonToNumberAndDisplay(JButton aButton){
+        currentEquation += aButton.getText();
+        screenField.setText(String.valueOf(currentEquation));
     }
 
     private void createNumbersPanel(){
@@ -194,11 +189,6 @@ public class JavaCalculatorGUI extends JFrame {
         mainPane.add(numbersPane, BorderLayout.WEST);
     }
 
-    private void buttonToNumberAndDisplay(JButton aButton){
-        currentEquation += aButton.getText();
-        screenField.setText(String.valueOf(currentEquation));
-    }
-
     private void createOperationsPanel(){
         operationsPane = new JPanel();
         operationsPane.setLayout(new GridLayout(3, 2));
@@ -233,6 +223,76 @@ public class JavaCalculatorGUI extends JFrame {
 
     }
 
+    private void createScreenPanel(){
+        screenField = new JLabel();
+        screenField.setText("   ");//So you can actually see it.
+        screenField.setSize(400, 200);
+        screenField.setOpaque(true);
+        screenField.setBackground(Color.lightGray);
+
+
+
+        mainPane.add(screenField, BorderLayout.NORTH);
+    }
+
+    private void floorDivisionOperation(){
+        int integerAnswer = 0;
+        if (isDeci == true){
+            integerAnswer = Math.floorDiv(Integer.parseInt(firstNumber), Integer.parseInt(secondNumber));
+        }
+        else{
+            if (isOct == true){
+                integerAnswer = Math.floorDiv(octalToDecimal(firstNumber), octalToDecimal(secondNumber));
+            }
+            else{
+                if (isHex == true){
+                    integerAnswer = Math.floorDiv(hexadecimalToDecimal(firstNumber), hexadecimalToDecimal(secondNumber));
+                }
+            }
+        }
+        answer = String.valueOf(integerAnswer);
+    }
+
+    private int hexadecimalToDecimal(String hexNumberToConvert){
+        int sumInDecimal = 0;
+        int stringLength = hexNumberToConvert.length();
+        for (int i=0; i < stringLength; i++){
+            int numToMultply;
+            String stringToCompare = String.valueOf(hexNumberToConvert.charAt(i));
+            numToMultply = hexStringToIntegerMap.get(stringToCompare);
+            sumInDecimal += ( numToMultply * (Math.pow(16,(stringLength - 1)) ) );
+        }
+        return sumInDecimal;
+    }
+
+    private void mapHexStringToInteger(){
+        hexStringToIntegerMap.put("0", 0);
+        hexStringToIntegerMap.put("1", 1);
+        hexStringToIntegerMap.put("2", 2);
+        hexStringToIntegerMap.put("3", 3);
+        hexStringToIntegerMap.put("4", 4);
+        hexStringToIntegerMap.put("5", 5);
+        hexStringToIntegerMap.put("6", 6);
+        hexStringToIntegerMap.put("7", 7);
+        hexStringToIntegerMap.put("8", 8);
+        hexStringToIntegerMap.put("9", 9);
+        hexStringToIntegerMap.put("A", 10);
+        hexStringToIntegerMap.put("B", 11);
+        hexStringToIntegerMap.put("C", 12);
+        hexStringToIntegerMap.put("D", 13);
+        hexStringToIntegerMap.put("E", 14);
+        hexStringToIntegerMap.put("F", 15);
+    }
+
+    private void mapIntegerToHexString(){
+        integerToHexString.put(10, "A");
+        integerToHexString.put(11, "B");
+        integerToHexString.put(12, "C");
+        integerToHexString.put(13, "D");
+        integerToHexString.put(14, "E");
+        integerToHexString.put(15, "F");
+    }
+
     private void mathOperation(){
         if (addOp == true){
             additionOperation();
@@ -254,42 +314,6 @@ public class JavaCalculatorGUI extends JFrame {
         }
     }
 
-    private void additionOperation(){
-        int integerAnswer = 0;
-        if (isDeci == true){
-            integerAnswer = Integer.parseInt(firstNumber) + Integer.parseInt(secondNumber);
-        }
-        else{
-            if (isOct == true){
-                integerAnswer = octalToDecimal(firstNumber) + octalToDecimal(secondNumber);
-            }
-            else{
-                if (isHex == true){
-                    integerAnswer = hexadecimalToDecimal(firstNumber) + hexadecimalToDecimal(secondNumber);
-                }
-            }
-        }
-        answer = String.valueOf(integerAnswer);
-    }
-
-    private void subtractionOperation(){
-        int integerAnswer = 0;
-        if (isDeci == true){
-            integerAnswer = Integer.parseInt(firstNumber) - Integer.parseInt(secondNumber);
-        }
-        else{
-            if (isOct == true){
-                integerAnswer = octalToDecimal(firstNumber) - octalToDecimal(secondNumber);
-            }
-            else{
-                if (isHex == true){
-                    integerAnswer = hexadecimalToDecimal(firstNumber) - hexadecimalToDecimal(secondNumber);
-                }
-            }
-        }
-        answer = String.valueOf(integerAnswer);
-    }
-
     private void multiplicationOperation(){
         int integerAnswer = 0;
         if (isDeci == true){
@@ -308,22 +332,12 @@ public class JavaCalculatorGUI extends JFrame {
         answer = String.valueOf(integerAnswer);
     }
 
-    private void floorDivisionOperation(){
-        int integerAnswer = 0;
-        if (isDeci == true){
-            integerAnswer = Math.floorDiv(Integer.parseInt(firstNumber), Integer.parseInt(secondNumber));
-        }
-        else{
-            if (isOct == true){
-                integerAnswer = Math.floorDiv(octalToDecimal(firstNumber), octalToDecimal(secondNumber));
-            }
-            else{
-                if (isHex == true){
-                    integerAnswer = Math.floorDiv(hexadecimalToDecimal(firstNumber), hexadecimalToDecimal(secondNumber));
-                }
-            }
-        }
-        answer = String.valueOf(integerAnswer);
+    private void numberToScreen(String numberToDisplay){
+        screenField.setText(numberToDisplay);
+    }
+
+    private Integer octalToDecimal(String numberToConvert){
+        return Integer.parseInt(numberToConvert);
     }
 
     private void resetOperation(){
@@ -346,36 +360,22 @@ public class JavaCalculatorGUI extends JFrame {
         // TODO Will need to add clearing radio buttons here too.
     }
 
-    private void createScreenPanel(){
-        screenField = new JLabel();
-        screenField.setText("   ");//So you can actually see it.
-        screenField.setSize(400, 200);
-        screenField.setOpaque(true);
-        screenField.setBackground(Color.lightGray);
-        
-
-
-        mainPane.add(screenField, BorderLayout.NORTH);
-    }
-
-    private void numberToScreen(String numberToDisplay){
-        screenField.setText(numberToDisplay);
-    }
-
-    private Integer octalToDecimal(String numberToConvert){
-        return Integer.parseInt(numberToConvert);
-    }
-
-    private int hexadecimalToDecimal(String hexNumberToConvert){
-        int sumInDecimal = 0;
-        int stringLength = hexNumberToConvert.length();
-        for (int i=0; i < stringLength; i++){
-            int numToMultply;
-            String stringToCompare = String.valueOf(hexNumberToConvert.charAt(i));
-            numToMultply = hexStringToIntegerMap.get(stringToCompare);
-            sumInDecimal += ( numToMultply * (Math.pow(16,(stringLength - 1)) ) );
+    private void subtractionOperation(){
+        int integerAnswer = 0;
+        if (isDeci == true){
+            integerAnswer = Integer.parseInt(firstNumber) - Integer.parseInt(secondNumber);
         }
-        return sumInDecimal;
+        else{
+            if (isOct == true){
+                integerAnswer = octalToDecimal(firstNumber) - octalToDecimal(secondNumber);
+            }
+            else{
+                if (isHex == true){
+                    integerAnswer = hexadecimalToDecimal(firstNumber) - hexadecimalToDecimal(secondNumber);
+                }
+            }
+        }
+        answer = String.valueOf(integerAnswer);
     }
 
 
