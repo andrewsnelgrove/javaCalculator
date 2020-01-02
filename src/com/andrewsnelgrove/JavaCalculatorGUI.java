@@ -291,8 +291,23 @@ public class JavaCalculatorGUI extends JFrame {
     }
 
     private void multiplicationOperation(){
-
+        int integerAnswer = 0;
+        if (isDeci == true){
+            integerAnswer = Integer.parseInt(firstNumber) * Integer.parseInt(secondNumber);
+        }
+        else{
+            if (isOct == true){
+                integerAnswer = octalToDecimal(firstNumber) * octalToDecimal(secondNumber);
+            }
+            else{
+                if (isHex == true){
+                    integerAnswer = hexadecimalToDecimal(firstNumber) * hexadecimalToDecimal(secondNumber);
+                }
+            }
+        }
+        answer = String.valueOf(integerAnswer);
     }
+    
     private void divisionOperation(){
 
     }
