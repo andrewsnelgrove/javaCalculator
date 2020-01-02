@@ -263,6 +263,11 @@ public class JavaCalculatorGUI extends JFrame {
         mainPane.add(screenField, BorderLayout.NORTH);
     }
 
+    private void displayAnswer(String theAnswer){
+        currentEquation += (" " + theAnswer);
+        screenField.setText(String.valueOf(currentEquation));
+    }
+
     private void floorDivisionOperation(){
         int integerAnswer = 0;
         if (isDeci == true){
