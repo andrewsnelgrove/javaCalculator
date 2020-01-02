@@ -388,8 +388,13 @@ public class JavaCalculatorGUI extends JFrame {
         screenField.setText(numberToDisplay);
     }
 
-    private Integer octalToDecimal(String numberToConvert){
-        return Integer.parseInt(numberToConvert);
+    private int octalToDecimal(String numberToConvert){
+        int integerDecimalAnswer = 0;
+        int exponent = (numberToConvert.length() - 1);
+        for (int i = 0; i < numberToConvert.length(); i++){
+            integerDecimalAnswer += (Integer.parseInt(String.valueOf(numberToConvert.charAt(i)))) * (Math.pow(8, exponent));
+        }
+        return integerDecimalAnswer;
     }
 
     private void resetOperation(){
