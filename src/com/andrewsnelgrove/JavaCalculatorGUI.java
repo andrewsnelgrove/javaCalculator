@@ -211,12 +211,13 @@ public class JavaCalculatorGUI extends JFrame {
         equalsButton.addActionListener(e -> mathOperation());
         resetButton.addActionListener(e -> resetOperation());
 
-        operationButtonArray = new JButton[5];
+        operationButtonArray = new JButton[6];
         operationButtonArray[0] = addButton;
         operationButtonArray[1] = subtractButton;
         operationButtonArray[2] = multButton;
         operationButtonArray[3] = divideButton;
         operationButtonArray[4] = resetButton;
+        operationButtonArray[5] = equalsButton;
 
         for (JButton btn : operationButtonArray){
             operationsPane.add(btn);
