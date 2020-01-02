@@ -107,6 +107,7 @@ public class JavaCalculatorGUI extends JFrame {
     private void additionOperation(){
         int integerAnswer = 0;
         if (isDeci == true){
+            //TODO I need to split and get the firstNumber and the secondNumber as integers.
             integerAnswer = Integer.parseInt(firstNumber) + Integer.parseInt(secondNumber);
         }
         else{
@@ -329,6 +330,16 @@ public class JavaCalculatorGUI extends JFrame {
     }
 
     private void mathOperation(){
+        //Get first number and second number
+        currentEquation.replaceAll("\\s+", ""); //Cut out all potential whitespace in string.
+        for (int i = 0; i < currentEquation.length(); i++){
+            String stringSymbolToCheck = String.valueOf(currentEquation.charAt(i));
+            if ( stringSymbolToCheck.equals("+") || stringSymbolToCheck.equals("-") || stringSymbolToCheck.equals("X") || stringSymbolToCheck.equals("/") ){
+                firstNumber = currentEquation.substring(0, i);
+                secondNumber = currentEquation.substring((i+1), (currentEquation.length() -1));//Don't include the "=" at the end of this!
+            }
+        }
+
         if (addOp == true){
             additionOperation();
         }
