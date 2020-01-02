@@ -210,7 +210,7 @@ public class JavaCalculatorGUI extends JFrame {
         multButton.addActionListener(e -> {buttonToNumberAndDisplay(multButton); multOp = true;});
         divideButton.addActionListener(e -> {buttonToNumberAndDisplay(divideButton); divOp = true;});
 
-        equalsButton.addActionListener(e -> mathOperation());
+        equalsButton.addActionListener(e -> {buttonToNumberAndDisplay(equalsButton); mathOperation();});
         resetButton.addActionListener(e -> resetOperation());
 
         operationButtonArray = new JButton[6];
@@ -332,11 +332,15 @@ public class JavaCalculatorGUI extends JFrame {
     private void mathOperation(){
         //Get first number and second number
         currentEquation.replaceAll("\\s+", ""); //Cut out all potential whitespace in string.
-        for (int i = 0; i < currentEquation.length(); i++){
-            String stringSymbolToCheck = String.valueOf(currentEquation.charAt(i));
-            if ( stringSymbolToCheck.equals("+") || stringSymbolToCheck.equals("-") || stringSymbolToCheck.equals("X") || stringSymbolToCheck.equals("/") ){
-                firstNumber = currentEquation.substring(0, i);
-                secondNumber = currentEquation.substring((i+1), (currentEquation.length() -1));//Don't include the "=" at the end of this!
+        boolean opSymbolFound = false;
+        while (opSymbolFound == false) {
+            for (int i = 0; i < currentEquation.length(); i++) {
+                String stringSymbolToCheck = String.valueOf(currentEquation.charAt(i));
+                if (stringSymbolToCheck.equals("+") || stringSymbolToCheck.equals("-") || stringSymbolToCheck.equals("X") || stringSymbolToCheck.equals("/")) {
+                    opSymbolFound = true;
+                    firstNumber = currentEquation.substring(0, i);
+                    secondNumber = currentEquation.substring((i + 1), (currentEquation.length() - 1));//Don't include the "=" at the end of this!
+                }
             }
         }
 
