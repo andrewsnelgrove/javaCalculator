@@ -120,6 +120,7 @@ public class JavaCalculatorGUI extends JFrame {
             }
         }
         answer = String.valueOf(integerAnswer);
+        displayAnswer(answer);
     }
 
     private void buttonToNumberAndDisplay(JButton aButton){
@@ -284,6 +285,7 @@ public class JavaCalculatorGUI extends JFrame {
             }
         }
         answer = String.valueOf(integerAnswer);
+        displayAnswer(answer);
     }
 
     private int hexadecimalToDecimal(String hexNumberToConvert){
@@ -363,6 +365,7 @@ public class JavaCalculatorGUI extends JFrame {
             }
         }
         answer = String.valueOf(integerAnswer);
+        displayAnswer(answer);
     }
 
     private void numberToScreen(String numberToDisplay){
@@ -410,6 +413,7 @@ public class JavaCalculatorGUI extends JFrame {
             }
         }
         answer = String.valueOf(integerAnswer);
+        displayAnswer(answer);
     }
 
 
