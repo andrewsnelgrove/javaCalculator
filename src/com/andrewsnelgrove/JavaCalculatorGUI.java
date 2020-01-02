@@ -380,6 +380,7 @@ public class JavaCalculatorGUI extends JFrame {
         answer = "";
 
         // TODO Will need to add clearing radio buttons here too.
+        radioButtons.clearSelection();
     }
 
     private void subtractionOperation(){
