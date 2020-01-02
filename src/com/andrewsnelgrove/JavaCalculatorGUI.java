@@ -247,7 +247,7 @@ public class JavaCalculatorGUI extends JFrame {
                 }
                 else{
                     if (divOp == true){
-                        divisionOperation();
+                        floorDivisionOperation();
                     }
                 }
             }
@@ -307,9 +307,23 @@ public class JavaCalculatorGUI extends JFrame {
         }
         answer = String.valueOf(integerAnswer);
     }
-    
-    private void divisionOperation(){
 
+    private void floorDivisionOperation(){
+        int integerAnswer = 0;
+        if (isDeci == true){
+            integerAnswer = Math.floorDiv(Integer.parseInt(firstNumber), Integer.parseInt(secondNumber));
+        }
+        else{
+            if (isOct == true){
+                integerAnswer = Math.floorDiv(octalToDecimal(firstNumber), octalToDecimal(secondNumber));
+            }
+            else{
+                if (isHex == true){
+                    integerAnswer = Math.floorDiv(hexadecimalToDecimal(firstNumber), hexadecimalToDecimal(secondNumber));
+                }
+            }
+        }
+        answer = String.valueOf(integerAnswer);
     }
 
     private void resetOperation(){
