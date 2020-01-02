@@ -271,21 +271,26 @@ public class JavaCalculatorGUI extends JFrame {
     }
 
     private void floorDivisionOperation(){
-        int integerAnswer = 0;
+        //FIXME These need to return the answer in their original number type, not always decimal!
+        int integerDecimalAnswer = 0;
+        int answerForDisplay = 0;
         if (isDeci == true){
-            integerAnswer = Math.floorDiv(Integer.parseInt(firstNumber), Integer.parseInt(secondNumber));
+            integerDecimalAnswer = Math.floorDiv(Integer.parseInt(firstNumber), Integer.parseInt(secondNumber));
+            answerForDisplay = integerDecimalAnswer;
         }
         else{
             if (isOct == true){
-                integerAnswer = Math.floorDiv(octalToDecimal(firstNumber), octalToDecimal(secondNumber));
+                integerDecimalAnswer = Math.floorDiv(octalToDecimal(firstNumber), octalToDecimal(secondNumber));
+                answerForDisplay = decimalToOctal(integerDecimalAnswer);
             }
             else{
                 if (isHex == true){
-                    integerAnswer = Math.floorDiv(hexadecimalToDecimal(firstNumber), hexadecimalToDecimal(secondNumber));
+                    integerDecimalAnswer = Math.floorDiv(hexadecimalToDecimal(firstNumber), hexadecimalToDecimal(secondNumber));
+                    answerForDisplay = decimalToHexadecimal(integerDecimalAnswer);
                 }
             }
         }
-        answer = String.valueOf(integerAnswer);
+        answer = String.valueOf(answerForDisplay);
         displayAnswer(answer);
     }
 
