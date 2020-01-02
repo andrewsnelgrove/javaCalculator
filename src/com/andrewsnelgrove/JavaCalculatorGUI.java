@@ -2,17 +2,21 @@ package com.andrewsnelgrove;
 
 import java.lang.Math;
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ThreadPoolExecutor;
 
 public class JavaCalculatorGUI extends JFrame {
     private static final Map<String, Integer> hexStringToIntegerMap = new HashMap<>();
     private static final Map<Integer, String> integerToHexString = new HashMap<>();
 
+    private ButtonGroup radioButtons;
     private JRadioButton decimalOptionButton;
     private JRadioButton octalOptionButton;
     private JRadioButton hexadecimalOptionButton;
+
 
     private JLabel screenField;
 
@@ -97,6 +101,7 @@ public class JavaCalculatorGUI extends JFrame {
         createScreenPanel();
         createNumbersPanel();
         createOperationsPanel();
+        createRadioButtons();
 
         setVisible(true);
     }
@@ -221,6 +226,23 @@ public class JavaCalculatorGUI extends JFrame {
         mainPane.add(operationsPane, BorderLayout.EAST);
 
 
+    }
+
+    private void createRadioButtons(){
+        decimalOptionButton = new JRadioButton("Decimal");
+        octalOptionButton = new JRadioButton("Octal");
+        hexadecimalOptionButton = new JRadioButton("Hexadecimal");
+
+        //TODO Review this part.
+        radioButtons = new ButtonGroup();
+        radioButtons.add(decimalOptionButton);
+        radioButtons.add(octalOptionButton);
+        radioButtons.add(hexadecimalOptionButton);
+
+
+        mainPane.add(decimalOptionButton, BorderLayout.CENTER);
+        mainPane.add(octalOptionButton, BorderLayout.CENTER);
+        mainPane.add(hexadecimalOptionButton, BorderLayout.CENTER);
     }
 
     private void createScreenPanel(){
