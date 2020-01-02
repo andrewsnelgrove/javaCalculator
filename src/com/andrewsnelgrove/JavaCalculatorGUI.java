@@ -52,12 +52,17 @@ public class JavaCalculatorGUI extends JFrame {
     private String firstNumber;
     private String secondNumber;
     private String operationSymbol;
+    private String answer;
 
     private boolean addOp;
     private boolean subOp;
     private boolean multOp;
     private boolean divOp;
     private boolean equalsOp;
+
+    private boolean isDeci;
+    private boolean isOct;
+    private boolean isHex;
 
 
     public JavaCalculatorGUI(){
@@ -69,9 +74,14 @@ public class JavaCalculatorGUI extends JFrame {
         divOp = false;
         equalsOp = false;
 
+        isDeci = false;
+        isOct = false;
+        isHex = false;
+
         currentEquation = "";
         firstNumber = "";
         secondNumber = "";
+        answer = "";
 
         mainPane = getContentPane();
         mainPane.setLayout(new BorderLayout());
@@ -245,8 +255,21 @@ public class JavaCalculatorGUI extends JFrame {
     }
 
     private void additionOperation(){
-        
-
+        int integerAnswer = 0;
+        if (isDeci == true){
+            integerAnswer = Integer.parseInt(firstNumber) + Integer.parseInt(secondNumber);
+        }
+        else{
+            if (isOct == true){
+                integerAnswer = octalToDecimal(firstNumber) + octalToDecimal(secondNumber);
+            }
+            else{
+                if (isHex == true){
+                    integerAnswer = hexadecimalToDecimal(firstNumber) + hexadecimalToDecimal(secondNumber);
+                }
+            }
+        }
+        answer = String.valueOf(integerAnswer);
     }
 
     private void subtractionOperation(){
