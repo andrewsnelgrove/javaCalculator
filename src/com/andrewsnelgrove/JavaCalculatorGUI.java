@@ -395,6 +395,8 @@ public class JavaCalculatorGUI extends JFrame {
 
         // TODO Will need to add clearing radio buttons here too.
         radioButtonGroup.clearSelection();
+
+        screenField.setText("");
     }
 
     private void subtractionOperation(){
