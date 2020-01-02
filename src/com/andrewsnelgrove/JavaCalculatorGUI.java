@@ -327,7 +327,23 @@ public class JavaCalculatorGUI extends JFrame {
     }
 
     private void resetOperation(){
+        //From constructor
+        addOp = false;
+        subOp = false;
+        multOp = false;
+        divOp = false;
+        equalsOp = false;
 
+        isDeci = false;
+        isOct = false;
+        isHex = false;
+
+        currentEquation = "";
+        firstNumber = "";
+        secondNumber = "";
+        answer = "";
+
+        // TODO Will need to add clearing radio buttons here too.
     }
 
     private void createScreenPanel(){
