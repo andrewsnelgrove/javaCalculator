@@ -2,21 +2,19 @@ package com.andrewsnelgrove;
 
 import java.lang.Math;
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ThreadPoolExecutor;
 
 public class JavaCalculatorGUI extends JFrame {
     private static final Map<String, Integer> hexStringToIntegerMap = new HashMap<>();
     private static final Map<Integer, String> integerToHexString = new HashMap<>();
 
-    private ButtonGroup radioButtons;
+    private ButtonGroup radioButtonGroup;
     private JRadioButton decimalOptionButton;
     private JRadioButton octalOptionButton;
     private JRadioButton hexadecimalOptionButton;
-
+    private JPanel radioButtonPanel;
 
     private JLabel screenField;
 
@@ -234,15 +232,17 @@ public class JavaCalculatorGUI extends JFrame {
         hexadecimalOptionButton = new JRadioButton("Hexadecimal");
 
         //TODO Review this part.
-        radioButtons = new ButtonGroup();
-        radioButtons.add(decimalOptionButton);
-        radioButtons.add(octalOptionButton);
-        radioButtons.add(hexadecimalOptionButton);
+        radioButtonGroup = new ButtonGroup();
+        radioButtonGroup.add(decimalOptionButton);
+        radioButtonGroup.add(octalOptionButton);
+        radioButtonGroup.add(hexadecimalOptionButton);
 
+        radioButtonPanel = new JPanel();
+        radioButtonPanel.add(decimalOptionButton);
+        radioButtonPanel.add(octalOptionButton);
+        radioButtonPanel.add(hexadecimalOptionButton);
 
-        mainPane.add(decimalOptionButton, BorderLayout.CENTER);
-        mainPane.add(octalOptionButton, BorderLayout.CENTER);
-        mainPane.add(hexadecimalOptionButton, BorderLayout.CENTER);
+        mainPane.add(radioButtonPanel, BorderLayout.CENTER);
     }
 
     private void createScreenPanel(){
@@ -380,7 +380,7 @@ public class JavaCalculatorGUI extends JFrame {
         answer = "";
 
         // TODO Will need to add clearing radio buttons here too.
-        radioButtons.clearSelection();
+        radioButtonGroup.clearSelection();
     }
 
     private void subtractionOperation(){
