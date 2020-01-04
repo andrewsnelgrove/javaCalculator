@@ -266,24 +266,25 @@ public class JavaCalculatorGUI extends JFrame {
         mainPane.add(screenField, BorderLayout.NORTH);
     }
 
-    private int decimalToOctal(int decimalNumber){
+    private int decimalToOctal(int decimalNumber) {
         int numberToDivide = decimalNumber;
         int remainder = 0;
         ArrayList<Integer> octalNumberArrayBackwards = new ArrayList<Integer>();
         String stringNumToAdd = "";
 
-        while (numberToDivide != 0){
+        while (numberToDivide != 0) {
             remainder = numberToDivide % 8;
             octalNumberArrayBackwards.add(remainder);
             numberToDivide = Math.floorDiv(numberToDivide, 8);
         }
 
         //Get octal number going backwards
-        for (int i = (octalNumberArrayBackwards.size() - 1); i >= 0; i--){
+        for (int i = (octalNumberArrayBackwards.size() - 1); i >= 0; i--) {
             stringNumToAdd += String.valueOf(octalNumberArrayBackwards.get(i));
         }
 
         return Integer.parseInt(stringNumToAdd);
+    }
 
     private void displayAnswer(String theAnswer){
         currentEquation += (" " + theAnswer);
