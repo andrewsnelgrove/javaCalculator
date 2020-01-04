@@ -328,7 +328,7 @@ public class JavaCalculatorGUI extends JFrame {
             else{
                 if (isHex == true){
                     integerDecimalAnswer = Math.floorDiv(hexadecimalToDecimal(firstNumber), hexadecimalToDecimal(secondNumber));
-                    answerForDisplay = decimalToHexadecimal(integerDecimalAnswer);
+                    answerForDisplay = Integer.valueOf(decimalToHexadecimal(integerDecimalAnswer));
                 }
             }
         }
