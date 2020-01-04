@@ -266,7 +266,28 @@ public class JavaCalculatorGUI extends JFrame {
         mainPane.add(screenField, BorderLayout.NORTH);
     }
 
-    private int decimalToOctal(int decimalNumber) {
+    private String decimalToHexadecimal(int decimalNumber){ //Note that this returns the STRING, NOT INTEGER.
+        //TODO To reduce code duplication, could make a general method for converting from decimal to any number.
+        int numberToDivide = decimalNumber;
+        int remainder = 0;
+        ArrayList<String> octalNumberArrayBackwards = new ArrayList<String>();
+        String stringNumToAdd = "";
+
+        while (numberToDivide != 0) {
+            remainder = numberToDivide % 16;
+            octalNumberArrayBackwards.add(integerToHexString.get(remainder));
+            numberToDivide = Math.floorDiv(numberToDivide, 16);
+        }
+
+        //Get octal number going backwards
+        for (int i = (octalNumberArrayBackwards.size() - 1); i >= 0; i--) {
+            stringNumToAdd += String.valueOf(octalNumberArrayBackwards.get(i));
+        }
+
+        return stringNumToAdd;
+    }
+
+    private int decimalToOctal(int decimalNumber) { //NOTE THAT THIS RETURNS INTEGER, NOT STRING.
         int numberToDivide = decimalNumber;
         int remainder = 0;
         ArrayList<Integer> octalNumberArrayBackwards = new ArrayList<Integer>();
