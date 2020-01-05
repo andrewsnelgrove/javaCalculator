@@ -105,31 +105,15 @@ public class JavaCalculatorGUI extends JFrame {
         setVisible(true);
     }
 
-    private void additionOperation(){
-        int integerAnswer = 0;
-        if (isDeci == true){
-            //TODO I need to split and get the firstNumber and the secondNumber as integers.
-            integerAnswer = Integer.parseInt(firstNumber) + Integer.parseInt(secondNumber);
-        }
-        else{
-            if (isOct == true){
-                integerAnswer = octalToDecimal(firstNumber) + octalToDecimal(secondNumber);
-            }
-            else{
-                if (isHex == true){
-                    integerAnswer = hexadecimalToDecimal(firstNumber) + hexadecimalToDecimal(secondNumber);
-                }
-            }
-        }
-        answer = String.valueOf(integerAnswer);
-        displayAnswer(answer);
-    }
+
+
+    /* --------------------------------------------METHODS----------------------------------*/
+    /* ----BUILDING THE GUI----------*/
 
     private void buttonToNumberAndDisplay(JButton aButton){
         currentEquation += aButton.getText();
         screenField.setText(String.valueOf(currentEquation));
     }
-
     private void createNumbersPanel(){
         numbersPane = new JPanel();
         numbersPane.setLayout(new GridLayout(4, 4));
@@ -229,7 +213,6 @@ public class JavaCalculatorGUI extends JFrame {
 
 
     }
-
     private void createRadioButtons(){
         decimalOptionButton = new JRadioButton("Decimal");
         octalOptionButton = new JRadioButton("Octal");
@@ -253,9 +236,7 @@ public class JavaCalculatorGUI extends JFrame {
 
         mainPane.add(radioButtonPanel, BorderLayout.CENTER);
     }
- /* --------------------------------------------METHODS----------------------------------*/
 
-    /* ----BUILDING THE GUI----------*/
     private void createScreenPanel(){
         screenField = new JLabel();
         screenField.setText("   ");//So you can actually see it.
@@ -267,7 +248,6 @@ public class JavaCalculatorGUI extends JFrame {
 
         mainPane.add(screenField, BorderLayout.NORTH);
     }
-
     private void displayAnswer(String theAnswer){
         currentEquation += (" " + theAnswer);
         screenField.setText(String.valueOf(currentEquation));
@@ -277,8 +257,8 @@ public class JavaCalculatorGUI extends JFrame {
         screenField.setText(numberToDisplay);
     }
 
-    /* ------ MAPPING METHODS -----------*/
 
+    /* ------ MAPPING METHODS -----------*/
     private void mapIntegerToHexString(){
         integerToHexString.put(10, "A");
         integerToHexString.put(11, "B");
@@ -307,8 +287,8 @@ public class JavaCalculatorGUI extends JFrame {
         hexStringToIntegerMap.put("F", 15);
     }
 
-    /* -------------CONVERSIONS------------*/
 
+    /* -------------CONVERSIONS------------*/
     private String decimalToHexadecimal(int decimalNumber){ //Note that this returns the STRING, NOT INTEGER.
         //TODO To reduce code duplication, could make a general method for converting from decimal to any number.
         int numberToDivide = decimalNumber;
@@ -371,7 +351,27 @@ public class JavaCalculatorGUI extends JFrame {
         return integerDecimalAnswer;
     }
 
+
     /* ----------------MATH OPERATIONS -------------------*/
+    private void additionOperation(){
+        int integerAnswer = 0;
+        if (isDeci == true){
+            //TODO I need to split and get the firstNumber and the secondNumber as integers.
+            integerAnswer = Integer.parseInt(firstNumber) + Integer.parseInt(secondNumber);
+        }
+        else{
+            if (isOct == true){
+                integerAnswer = octalToDecimal(firstNumber) + octalToDecimal(secondNumber);
+            }
+            else{
+                if (isHex == true){
+                    integerAnswer = hexadecimalToDecimal(firstNumber) + hexadecimalToDecimal(secondNumber);
+                }
+            }
+        }
+        answer = String.valueOf(integerAnswer);
+        displayAnswer(answer);
+    }
 
     private void floorDivisionOperation(){
         //FIXME These need to return the answer in their original number type, not always decimal!
