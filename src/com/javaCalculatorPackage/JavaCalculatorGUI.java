@@ -260,6 +260,16 @@ public class JavaCalculatorGUI extends JFrame {
 
     /* ------ MAPPING METHODS -----------*/
     private void mapIntegerToHexString(){
+        integerToHexString.put(0, "0");
+        integerToHexString.put(1, "1");
+        integerToHexString.put(2, "2");
+        integerToHexString.put(3, "3");
+        integerToHexString.put(4, "4");
+        integerToHexString.put(5, "5");
+        integerToHexString.put(6, "6");
+        integerToHexString.put(7, "7");
+        integerToHexString.put(8, "8");
+        integerToHexString.put(9, "9");
         integerToHexString.put(10, "A");
         integerToHexString.put(11, "B");
         integerToHexString.put(12, "C");
@@ -357,6 +367,7 @@ public class JavaCalculatorGUI extends JFrame {
         //FIXME These need to return the answer in their original number type, not always decimal!
         int integerDecimalAnswer = 0;
         int answerForDisplay = 0;
+        String hexAnswer = "";
         if (isDeci == true){
             //TODO I need to split and get the firstNumber and the secondNumber as integers.
             integerDecimalAnswer = Integer.parseInt(firstNumber) + Integer.parseInt(secondNumber);
@@ -370,12 +381,17 @@ public class JavaCalculatorGUI extends JFrame {
             else{
                 if (isHex == true){
                     integerDecimalAnswer = hexadecimalToDecimal(firstNumber) + hexadecimalToDecimal(secondNumber);
-                    answerForDisplay = Integer.parseInt(decimalToHexadecimal(integerDecimalAnswer));
+                    hexAnswer = decimalToHexadecimal(integerDecimalAnswer);
                 }
             }
         }
-        answer = String.valueOf(answerForDisplay);
-        displayAnswer(answer);
+        if (isHex == true) {
+            displayAnswer(hexAnswer);
+        }
+        else {
+            answer = String.valueOf(answerForDisplay);
+            displayAnswer(answer);
+        }
     }
 
     private void floorDivisionOperation(){
