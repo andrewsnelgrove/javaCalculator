@@ -221,7 +221,7 @@ public class JavaCalculatorGUI extends JFrame {
         //TODO Double check if buttons say true if you click them again as radios, or if you click away.
         decimalOptionButton.addActionListener(e -> isDeci = true);
         octalOptionButton.addActionListener(e -> isOct = true);
-        decimalOptionButton.addActionListener(e -> isHex = true);
+        hexadecimalOptionButton.addActionListener(e -> isHex = true);
 
         //TODO Review this part.
         radioButtonGroup = new ButtonGroup();
