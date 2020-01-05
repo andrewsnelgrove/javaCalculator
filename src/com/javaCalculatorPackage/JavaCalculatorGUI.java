@@ -354,22 +354,27 @@ public class JavaCalculatorGUI extends JFrame {
 
     /* ----------------MATH OPERATIONS -------------------*/
     private void additionOperation(){
-        int integerAnswer = 0;
+        //FIXME These need to return the answer in their original number type, not always decimal!
+        int integerDecimalAnswer = 0;
+        int answerForDisplay = 0;
         if (isDeci == true){
             //TODO I need to split and get the firstNumber and the secondNumber as integers.
-            integerAnswer = Integer.parseInt(firstNumber) + Integer.parseInt(secondNumber);
+            integerDecimalAnswer = Integer.parseInt(firstNumber) + Integer.parseInt(secondNumber);
+            answerForDisplay = integerDecimalAnswer;
         }
         else{
             if (isOct == true){
-                integerAnswer = octalToDecimal(firstNumber) + octalToDecimal(secondNumber);
+                integerDecimalAnswer = octalToDecimal(firstNumber) + octalToDecimal(secondNumber);
+                answerForDisplay = decimalToOctal(integerDecimalAnswer);
             }
             else{
                 if (isHex == true){
-                    integerAnswer = hexadecimalToDecimal(firstNumber) + hexadecimalToDecimal(secondNumber);
+                    integerDecimalAnswer = hexadecimalToDecimal(firstNumber) + hexadecimalToDecimal(secondNumber);
+                    answerForDisplay = Integer.parseInt(decimalToHexadecimal(integerDecimalAnswer));
                 }
             }
         }
-        answer = String.valueOf(integerAnswer);
+        answer = String.valueOf(answerForDisplay);
         displayAnswer(answer);
     }
 
