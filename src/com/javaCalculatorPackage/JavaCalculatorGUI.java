@@ -364,12 +364,10 @@ public class JavaCalculatorGUI extends JFrame {
 
     /* ----------------MATH OPERATIONS -------------------*/
     private void additionOperation(){
-        //FIXME These need to return the answer in their original number type, not always decimal!
         int integerDecimalAnswer = 0;
         int answerForDisplay = 0;
         String hexAnswer = "";
         if (isDeci == true){
-            //TODO I need to split and get the firstNumber and the secondNumber as integers.
             integerDecimalAnswer = Integer.parseInt(firstNumber) + Integer.parseInt(secondNumber);
             answerForDisplay = integerDecimalAnswer;
         }
@@ -395,7 +393,6 @@ public class JavaCalculatorGUI extends JFrame {
     }
 
     private void floorDivisionOperation(){
-        //FIXME These need to return the answer in their original number type, not always decimal!
         int integerDecimalAnswer = 0;
         int answerForDisplay = 0;
         if (isDeci == true){
@@ -455,7 +452,6 @@ public class JavaCalculatorGUI extends JFrame {
     }
 
     private void multiplicationOperation(){
-        //FIXME These need to return the answer in their original number type, not always decimal!
         int integerDecimalAnswer = 0;
         int answerForDisplay = 0;
         if (isDeci == true){
@@ -520,8 +516,7 @@ public class JavaCalculatorGUI extends JFrame {
         firstNumber = "";
         secondNumber = "";
         answer = "";
-
-        // TODO Will need to add clearing radio buttons here too.
+        
         radioButtonGroup.clearSelection();
 
         screenField.setText(" ");
